@@ -1,0 +1,13 @@
+.box-pairs {
+    background-color:#ccc;
+    
+}
+.box-impairs {
+    background-color:#aaa;
+
+}
+.box{
+  height: 190px;
+  padding: 8px;
+
+}

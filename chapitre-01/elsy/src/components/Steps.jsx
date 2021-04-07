@@ -1,17 +1,17 @@
 import React from "react";
- 
-class Welcome extends React.Component {
-	constructor() {
-      super(); // permet de récupérer les props
+
+class Steps extends React.Component {
+    constructor() {
+        super(); // permet de récupérer les props
     }
 
-  render() {
-    return (
-			<div class="box col-sm-3 col-6">
-				<i style = "fontSize:100; color:black">directions_walk</i>
-			</div>
-		)
-  };
+    render() {
+        return (
+            <div class="box col-sm-3 col-6">
+                <span style="fontSize:100; color:black" class="material-icons">directions_walk</span>
+            </div>
+        )
+    };
 }
 
-export default Welcome;
+export default Steps;
