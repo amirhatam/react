@@ -13,7 +13,8 @@ class App extends React.Component {
     return (
       <div class= "container-fluid">
         <div class = "row">
-          <p> {heartMin.tempMin.stepsMin}</p>
+          {stepsMin}{stepsMax}
+          <p> {heartMin}{tempMin}{stepsMin}</p>
         </div>
       </div>
     );
