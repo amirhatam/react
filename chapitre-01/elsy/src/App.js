@@ -4,6 +4,18 @@ import './styles/global.css';
 import './styles/bootstrap.css';
 
 
+/* 
+constructor(props) {
+  super(props);
+
+  this.state. = {
+      value: "red";
+  };
+
+  this.changeColor = this.changeColor.bind(this);
+}
+ */
+
 const tempMin = -20;
 const tempMax = 40;
 const heartMin = 80;
@@ -14,11 +26,11 @@ const stepsMax = 50000;
 class App extends React.Component {
   render() {
     return (
-      <div class="container-fluid">
-        <div class="row">
+      <div className="container-fluid">
+        <div className="row">
 
 
-          <Box icon = "local_drink" color= "blue" value = {1.5} unit = "L" />
+          <Box icon = "local_drink" color= "blue" value = {0} unit = "L" />
 
           <Box icon = "directions_walk" color="black" value = {3000} unit = "steps"/>
 
