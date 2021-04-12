@@ -14,7 +14,13 @@ class Counter extends React.Component {
             
              <button onClick={this.props.removeFunction} className="btn btn-outline-dark rounded-pill m-2 p-3">-</button>
              <h2 className="d-inline-flex mx-3 lead">{this.props.count}</h2>
-             <button onClick={this.props.addFunction} className="btn btn-outline-dark rounded-pill m-2 p-3" >+</button>
+             <button onClick={this.props.addFunction}  className="btn btn-outline-dark rounded-pill m-2 p-3" >+</button>
+
+             <button onClick={this.props.removeFunction2} className="btn btn-outline-dark rounded-pill m-2 p-3">-</button>
+             <h2 className="d-inline-flex mx-3 lead">{this.props.count2}</h2>
+             <button onClick={this.props.addFunction2}  className="btn btn-outline-dark rounded-pill m-2 p-3" >+</button>
+
+           
             
         </div>
     )
