@@ -20,8 +20,8 @@ class App extends React.Component {
     super()
   
     this.state = {
-     count: 1.5 ,
-      heart: heartMin
+    //  count: 1.5 ,
+    //   heart: heartMin
     }
    
   } 
