@@ -59,6 +59,9 @@ class App extends React.Component {
   render() {
     let userName
 
+    if(this.state.userConnected) {
+      
+    }
     return (
 
       <div>
