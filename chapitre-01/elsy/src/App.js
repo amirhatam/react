@@ -21,14 +21,16 @@ class App extends React.Component {
   
     this.state = {
      count: 1.5 ,
-      heart: heartMin
+      heart: 120,
+      temperature:
+      
     }
    
   } 
 
   onHeartChange = (value) => {
      
-    // if(this.state.heart + 1){
+    if(this.state.heart + 1){
     
     this.setState({
       heart: this.state.heart 

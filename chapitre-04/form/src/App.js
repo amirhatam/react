@@ -8,13 +8,24 @@ import Button from "react-bootstrap/Button";
 
 
 
-
-
-
-
 class App extends React.Component {
   
+  
+  
+  // constructor() {
+  //   super()
+  
+  //   this.state = {
+  //       email: "",
+  //       pass: ""
+  //   }
+  
+  //   this.updateUsername = this.updateUsername.bind(this)
+  // }
 
+ 
+  
+  
   render() {
     return (
       <div className=" d-flex flex-column align-items-center p-5" >
@@ -33,7 +44,10 @@ class App extends React.Component {
           <Form.Group  controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Remember me" />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="primary"
+           type="submit"
+          
+           >
             Submit
           </Button>
 
