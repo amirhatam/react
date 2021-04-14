@@ -47,9 +47,10 @@ class App extends Component {
                 <div>
                     {/* <input id="money" type="range" value={this.state.money} onChange={this.updateUsername}></input> */}
                   
-                    <button onClick={this.updateUsername}>Click me!</button>
-                    <button onClick={this.updateUsername}>Click me!</button>
-                    <button onClick={this.updateUsername}>Click me!</button>
+                    <Button/>
+                    <Button/>
+                    <Button/>
+                  
 
                 </div>
                     <input id="money" type="text" value={this.state.money} onChange={this.updateUsername}></input>

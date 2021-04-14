@@ -20,7 +20,8 @@ class Button extends React.Component {
   render() {
     return (
 			<div >
-				
+				  <button class="btn btn-outline-primary" onClick={this.updateUsername}>Click me!</button>
+               
 			</div>
 		)
   };
