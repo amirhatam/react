@@ -1,4 +1,7 @@
 import React from "react";
+import Add from "./Add"
+
+
  
 class Button extends React.Component {
 	
@@ -20,8 +23,12 @@ class Button extends React.Component {
   render() {
     return (
 			<div >
-				  <button class="btn btn-outline-primary" onClick={this.updateUsername}>Click me!</button>
+                <div >
+				  <button class="btn btn-outline-primary" onClick={this.updateUsername}>Add</button>
+				  <button class="btn btn-outline-primary" onClick={this.updateUsername}>List</button>
+				  <button class="btn btn-outline-primary" onClick={this.updateUsername}>Pay</button>
                
+               </div>
 			</div>
 		)
   };

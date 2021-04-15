@@ -1,5 +1,8 @@
-import { Component, Fragment } from 'react'
+import { Component } from 'react';
 import Button from "./components/Button.jsx"
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 class App extends Component {
 
@@ -41,22 +44,16 @@ class App extends Component {
         return (
             <>
               
-
-               
               <h1>Bakery</h1>
                 <div>
                     {/* <input id="money" type="range" value={this.state.money} onChange={this.updateUsername}></input> */}
                   
                     <Button/>
-                    <Button/>
-                    <Button/>
-                  
-
+                
                 </div>
-                    <input id="money" type="text" value={this.state.money} onChange={this.updateUsername}></input>
 
-                <p>My username is: {this.state.username}</p>
-                <p>My amount of money is: {this.state.money}</p>
+                {/* <p>My username is: {this.state.username}</p>
+                <p>My amount of money is: {this.state.money}</p> */}
             </>
             // </Fragment>
         )
