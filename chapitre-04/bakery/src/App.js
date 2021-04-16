@@ -1,63 +1,45 @@
-import { Component } from 'react';
-import Button from "./components/Button.jsx"
+import { Component } from "react";
+import Button from "./components/Button.jsx";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
+  constructor() {
+    super();
 
-    constructor() {
-        super()
+    this.state = {
+      activeTab: "add ",
+      items: [],
+    };
+  }
 
-        this.state = {
-          activeTab : "add ",
-          items : [] 
-        }
-
-        this.updateUsername = this.updateUsername.bind(this)
-    }
-
-    updateUsername(event) {
-        console.log("updateUsername target", event.target);
-        console.log("updateUsername (si l'attribut existe dans le target. pas le cas pour un button par exemple)" ,event.target.type);
-        console.log("updateUsername value", event.target.value);
-
-        if (event.target.type === "text") {
-            this.setState({
-                username: event.target.value
-            })
-        } else if (event.target.id === "money") {
-            this.setState({
-                money: event.target.value
-            })
-        }
-
-    }
-
-   
-    updateUsernameArrow = (value) => {
-        console.log("value of input email is:", value);
-
-    }
-
-    render() {
-        return (
-            <>
-              
-              <h1>Bakery</h1>
-                <div>
-                    {/* <input id="money" type="range" value={this.state.money} onChange={this.updateUsername}></input> */}
-                  
-                    <Button/>
-                
-                </div>
-
-                {/* <p>My username is: {this.state.username}</p>
-                <p>My amount of money is: {this.state.money}</p> */}
-            </>
-            // </Fragment>
-        )
-    }
+  render() {
+    return (
+      <div
+        className="text-center"
+        style={{ display: "grid", width: "100%" }}
+      >
+        <h1 className="mt-4 mb-3">Bakery</h1>
+        <div className="d-flex justify-content-center">
+          <Button
+            onClick={() => this.handleClick("add")}
+            name="add"
+            stylesheetClass={["btn-primary", "w-100"]}
+          />
+          <Button
+            onClick={() => this.handleClick("list")}
+            name="list"
+            stylesheetClass={["btn-primary", "w-100", "mx-1"]}
+          />
+          <Button
+            onClick={() => this.handleClick("pay")}
+            name="pay"
+            stylesheetClass={["btn-primary", "w-100"]}
+          />
+        </div>
+      </div>
+    );
+  }
 }
 
-export default App
+export default App;

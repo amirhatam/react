@@ -1,37 +1,42 @@
-import React from "react";
-import Add from "./Add"
+import React from 'react';
 
+// props => { stylesheetClass, click, selected, children }
 
- 
-class Button extends React.Component {
-	
-    isSelected  = () => {
-        // console.log(this);
-    }
-
-    onClick  = () => {
-        // console.log(this);
-    }
-
-
-    children = () => {
-        // console.log(this);
-    }
-
-
-
-  render() {
-    return (
-			<div >
-                <div >
-				  <button class="btn btn-outline-primary" onClick={this.updateUsername}>Add</button>
-				  <button class="btn btn-outline-primary" onClick={this.updateUsername}>List</button>
-				  <button class="btn btn-outline-primary" onClick={this.updateUsername}>Pay</button>
-               
-               </div>
-			</div>
-		)
-  };
-}
+const Button = ({ name='Demo', onClick, stylesheetClass, stylesheetElement}) => {
+        const className = ["btn"];               
+        const remoteClass = stylesheetClass;
+        if (  remoteClass && remoteClass.length > 0 ){
+                remoteClass.forEach(this_class => {
+                        className.push(this_class);
+                });
+        }else{
+                //console.warn("BUTTON:\nattribute 'stylesheetClass' is empty...");
+        }
+        //
+        const styleObject = {width: "10.3%"};
+        const remoteStyle = stylesheetElement;
+        if (  remoteStyle ){
+                Object.entries(remoteStyle).forEach(([key, value]) => {
+                        styleObject[key] = value;
+                });
+        }else{
+                //console.warn("BUTTON:\nattribute 'stylesheetClass' is empty...");
+        }
+        //
+        if ( name === 'Demo'){
+                //console.error("BUTTON:\nattribute 'name' is empty ...\nauto injection default 'CLICK ME' ");
+        }
+        // 
+        return (
+                <button 
+                        type="button" 
+                        className="btn btn-outline-primary" 
+                        onClick={onClick} 
+                        style={styleObject}
+                >
+                        {name}
+                </button>
+        );
+};
 
 export default Button;
