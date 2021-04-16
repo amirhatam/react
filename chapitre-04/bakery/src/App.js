@@ -23,18 +23,15 @@ class App extends Component {
         <div className="d-flex justify-content-center">
           <Button
             onClick={() => this.handleClick("add")}
-            name="add"
-            stylesheetClass={["btn-primary", "w-100"]}
+            name="Add"
           />
           <Button
             onClick={() => this.handleClick("list")}
-            name="list"
-            stylesheetClass={["btn-primary", "w-100", "mx-1"]}
+            name="List"
           />
           <Button
             onClick={() => this.handleClick("pay")}
-            name="pay"
-            stylesheetClass={["btn-primary", "w-100"]}
+            name="Pay"
           />
         </div>
       </div>

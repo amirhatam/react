@@ -9,30 +9,14 @@ const Button = ({ name='Demo', onClick, stylesheetClass, stylesheetElement}) => 
                 remoteClass.forEach(this_class => {
                         className.push(this_class);
                 });
-        }else{
-                //console.warn("BUTTON:\nattribute 'stylesheetClass' is empty...");
         }
-        //
-        const styleObject = {width: "10.3%"};
-        const remoteStyle = stylesheetElement;
-        if (  remoteStyle ){
-                Object.entries(remoteStyle).forEach(([key, value]) => {
-                        styleObject[key] = value;
-                });
-        }else{
-                //console.warn("BUTTON:\nattribute 'stylesheetClass' is empty...");
-        }
-        //
-        if ( name === 'Demo'){
-                //console.error("BUTTON:\nattribute 'name' is empty ...\nauto injection default 'CLICK ME' ");
-        }
-        // 
+      
         return (
                 <button 
                         type="button" 
-                        className="btn btn-outline-primary" 
+                        className="btn btn-outline-primary px-5" 
                         onClick={onClick} 
-                        style={styleObject}
+                        // style={styleObject}
                 >
                         {name}
                 </button>
