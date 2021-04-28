@@ -96,13 +96,13 @@ export class App extends Component {
           isSelected={activeTab === "brazil"}
           onClick={(e) => this.onClick("brazil")}
         >
-          List
+          Brazil 
         </Button>
         <Button
           isSelected={activeTab === "croatia"}
           onClick={(e) => this.onClick("croatia")}
         >
-          Pay
+          Croatia
         </Button>
 
         <img src="{this.state.countryFlag}"></img>
