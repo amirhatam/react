@@ -1,0 +1,14 @@
+.container_country{
+    width: 500px;
+    margin: auto;
+    text-align: center;
+}
+img {
+    width: 30%;
+}
+
+.inputS{
+    width: 450px;
+    display: flex;
+    margin: auto;
+}
