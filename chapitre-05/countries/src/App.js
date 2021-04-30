@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "./components/Button";
 import "./assets/styles/styles.css";
 import Card from "./components/Card";
+import BG from "./assets/img/1.jpg"
 
 class App extends React.Component {
   constructor() {
@@ -13,20 +14,22 @@ class App extends React.Component {
       flag: "",
       population: "",
       region: "",
+      image: "",
     };
     this.userInput = this.userInput.bind(this);
     //   console.log("contructor");
   }
   componentDidMount() {
-    fetch("https://restcountries.eu/rest/v2/name/france")
+    fetch("http://localhost:8000/countries/name/")
       .then((response) => response.json())
       .then((result) => {
-        // console.log("result", result);
-        const countrieName = result[0].name;
-        const countrieCap = result[0].capital;
-        const countrieFlag = result[0].flag;
-        const countriePopul = result[0].population;
-        const countrieRegion = result[0].region;
+        console.log("result", result);
+        const countrieName = result.resultCountries.name;
+        const countrieCap = result.resultCountries.capital;
+        const countrieFlag = result.resultCountries.flag;
+        const countriePopul = result.resultCountries.population;
+        const countrieRegion = result.resultCountries.region;
+        const countrieImage = result.resultCountries.img;
         // console.log("result name", countrieName);
 
         this.setState({
@@ -35,6 +38,7 @@ class App extends React.Component {
           flag: countrieFlag,
           population: countriePopul,
           region: countrieRegion,
+          image: countrieImage,
         });
       });
   }
@@ -43,18 +47,21 @@ class App extends React.Component {
       .then((response) => response.json())
       .then((result) => {
         console.log("result dans getCountry:", result);
-        console.log("result name :", this.state.capital);
-       
+        // console.log("result dans name:", this.state.name);
+      //   console.log("result dans capital:", this.state.capital);
+      //  console.log("result name :", result.resultCountries.name);
           this.setState({
-            name: result[0].name,
-            capital: result[0].capital,
-            flag: result[0].flag,
-            population: result[0].population,
-            region: result[0].region,
+            name: result.resultCountries.name,
+            capital: result.resultCountries.capital,
+            flag: result.resultCountries.flag,
+            population: result.resultCountries.population,
+            region: result.resultCountries.region,
+            image: result.resultCountries.img,
           });
         
-        })
-        .catch((err) => console.log(err));
+
+      })
+      .catch((err) => console.log(err));
   }
 
   // getCountry(country) {
@@ -91,7 +98,8 @@ class App extends React.Component {
   render() {
     // console.log("render");
     return (
-      <div className="text-center ">
+      <div className="text-center bgC " style={{background: `url(${BG})`, height:`${800}px` }}>
+        
         <h1>Country Selector</h1>
         <input
           onChange={this.userInput}
@@ -116,6 +124,7 @@ class App extends React.Component {
           capitalName={this.state.capital}
           regionName={this.state.region}
           countryPopulation={this.state.population}
+          countryImage={this.state.image}
         ></Card>
       </div>
     );

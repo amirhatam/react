@@ -1,14 +1,31 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
 .container_country{
     width: 500px;
     margin: auto;
     text-align: center;
 }
 img {
-    width: 30%;
+    width: 5%;
 }
 
 .inputS{
     width: 450px;
     display: flex;
     margin: auto;
+}
+
+/* .bgC{
+    background-color: aqua;
+} */
+
+.bgCard{
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+
+.cntD{
+    font-size: 30px;
 }
