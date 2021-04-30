@@ -18,7 +18,7 @@ class App extends React.Component {
     //   console.log("contructor");
   }
   componentDidMount() {
-    fetch("http://localhost:8000/countries/")
+    fetch("https://restcountries.eu/rest/v2/name/france")
       .then((response) => response.json())
       .then((result) => {
         // console.log("result", result);
@@ -39,11 +39,12 @@ class App extends React.Component {
       });
   }
   getCountry(country) {
-    fetch("http://localhost:8000/countries/" + country)
+    fetch("http://localhost:8000/countries/name/" + this.state.name)
       .then((response) => response.json())
       .then((result) => {
         console.log("result dans getCountry:", result);
-        if (result) {
+        console.log("result name :", this.state.capital);
+       
           this.setState({
             name: result[0].name,
             capital: result[0].capital,
@@ -51,11 +52,9 @@ class App extends React.Component {
             population: result[0].population,
             region: result[0].region,
           });
-        }
-
-        // console.log(name);
-      })
-      .catch((err) => console.log(err));
+        
+        })
+        .catch((err) => console.log(err));
   }
 
   // getCountry(country) {
@@ -83,13 +82,14 @@ class App extends React.Component {
 
   userInput(event) {
     console.log("event.target.value", event.target.value);
+   
     this.setState({
       name: event.target.value,
+      
     });
   }
-
   render() {
-    console.log("render");
+    // console.log("render");
     return (
       <div className="text-center ">
         <h1>Country Selector</h1>
