@@ -1,61 +1,95 @@
-import { Component } from "react";
-import Button from "./components/Button.jsx";
-import Add from "./components/Add.jsx";
-
+import React from "react";
+import Add from "./components/Add";
+import List from "./components/List";
+import Pay from "./components/Pay";
+import Button from "./components/main/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.js";
+import navbar from "./pics/pic1.jpg"
 
-class App extends Component {
-  constructor() {
-    super();
-
+class App extends React.Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      productName : "",
-      price: 1,
-      activeTab: "add ",
+      activeTab: "add",
       items: [],
     };
-
-    this.handleClick = this.handleClick.bind(this);
-    this.handleForm = this.handleForm.bind(this);
-    this.handleSlider = this.handleSlider.bind(this);
+    this.onClick = this.onClick.bind(this);
+    this.onAdd = this.onAdd.bind(this);
   }
 
-  handleClick(this_comp) {
-    this.setState({
-      activeTab: this_comp,
-    });
+  onClick(value) {
+    // console.log("App#onClick value", value);
+    this.setState({ activeTab: value });
   }
-  handleForm(this_form) {
+
+  onAdd(price, input) {
+    // console.log("App#onAdd", price, input);
+    let items = this.state.items;
+    items.push({ input, price });
     this.setState({
-        productName : this_form,
-    });
-  }
-  handleSlider(this_form) {
-    this.setState({
-      price: this_form,
+      items,
+      activeTab: "list",
     });
   }
 
   render() {
+    const { activeTab, items } = this.state;
+    // console.log("activeTab", activeTab);
+    // console.log("this.renderTabAdd", this.renderTabAdd);
+    // console.log("this.renderTabList", this.renderTabList);
+    // console.log("this.renderTabPay", this.renderTabPay);
     return (
-      <div className="text-center" style={{ display: "grid", width: "100%" }}>
-        <h1 className="mt-4 mb-3">Bakery</h1>
-        <div className="d-flex justify-content-center">
-          <Button onClick={() => this.handleClick("add")} name="Add" />
-          <Button onClick={() => this.handleClick("list")} name="List" />
-          <Button onClick={() => this.handleClick("pay")} name="Pay" />
+      <div style={{ backgroundColor: "#d12839", height: "1000px" }}>
+        <div className="text-center" style={{ display: "grid", width: "100%" }}>
+        <div style={{background: `url(${navbar})`, height:"170px", borderRadius: "0 0 85% 85% / 30%"}}></div>
+         
+        <h1
+            style={{
+              
+              fontFamily: "Niconne",
+              fontSize: "11vmax",
+              color: "#fdead4",
+              textShadow:
+                "4px 4px #e83d29, 8px 8px #ef952e, 12px 12px #45aa8a, 16px 16px #007273, 20px 20px #022432, 24px 24px #ba1827, 28px 28px #ba1827, 32px 32px #ba1827",
+            }}
+            className="mb-4 text-center "
+          >
+            Bakery
+          </h1>
+          <div className="d-flex justify-content-center offset-3 col-6">
+            <Button
+          
+              isSelected={activeTab === "add"}
+              onClick={(e) => this.onClick("add")}
+            >
+              Add
+            </Button>
+            <Button
+              isSelected={activeTab === "list"}
+              onClick={(e) => this.onClick("list")}
+            >
+              List
+            </Button>
+            <Button
+              isSelected={activeTab === "pay"}
+              onClick={(e) => this.onClick("pay")}
+            >
+              Pay
+            </Button>
+          </div>
         </div>
-        {this.state.activeTab === "add" ? (
-          <Add 
-            name="add"
-            productName ={(e) => this.handleForm(e.target.value)}
-            inputSlider={this.handleSlider}
-            slider={this.state.price}
-            onClick={() => this.handleSubmit()}
-          />
-        ) : null}
-       
+        <div className="offset-3 col-6">
+          {/* {activeTab === 'add' ? <Add /> : null}
+            {activeTab === 'list' ? <List /> : null}
+            {activeTab === 'pay' ? <Pay /> : null} */}
+          {activeTab === "add" && <Add onAdd={this.onAdd} />}
+          {activeTab === "list" && <List list={items} />}
+          {activeTab === "pay" && <Pay list={items} />}
+        </div>
+
+        {/* <div style={{ backgroundColor: "#d12839",height:"200px", width: "100%", }} /> */}
+
+      
       </div>
     );
   }
