@@ -13,7 +13,7 @@ class Button extends React.Component {
                 >{this.props.children}</button> */}
                 <button 
                 onClick={this.props.clickButton}
-                className="btn btn-primary px-5 mb-1 mx-2 fw-bold  "
+                className="btn btn-success"
                 >{this.props.children}</button>
             </div>
         )
