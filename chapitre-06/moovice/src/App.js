@@ -7,6 +7,7 @@ import WeeklyBattle from "./view/WeeklyBattle"
 import Popular from "./view/Popular"
 import PopularBattle from "./view/PopularBattle"
 import Favorites from "./view/Favorites"
+import Card from "./components/Card"
 
 class App extends React.Component {
   render() {
@@ -32,6 +33,7 @@ class App extends React.Component {
             <Route path="/favorites" component={Favorites} />
           </Switch>
           
+          <Card/>
         </BrowserRouter>
       </div>
     );
