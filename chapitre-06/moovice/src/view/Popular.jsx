@@ -1,12 +1,9 @@
 import React, { Component } from "react";
+import Card from "../components/Card";
 
 export default class Popular extends Component {
   state = {
-    movies: [],
-    image: "",
-    title: "",
-    release: "",
-    overview: "",
+    movies: []
   };
 
   componentDidMount() {
@@ -15,18 +12,10 @@ export default class Popular extends Component {
     )
       .then((response) => response.json())
       .then((data) => {
-        // console.log("data movies in componentDidMount", data);
-
-        let source = data.results[0];
-
-        // console.log("Popular movie data result", data.results);
-       
+        // console.log("data movies in componentDidMount", data.results);
 
         this.setState({
-          image: source.poster_path,
-          title: source.title,
-          release: source.release_date,
-          overview: source.overview,
+          movies : data.results
         });
       });
   }
@@ -35,6 +24,13 @@ export default class Popular extends Component {
     return (
       <div>
         <h1>Popular</h1>
+        {
+           this.state.movies.map((elem, index) => {
+
+             return <Card key={index} {...elem}/>
+           }) 
+        }
+      
       </div>
     );
   }
