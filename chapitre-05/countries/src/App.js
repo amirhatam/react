@@ -23,10 +23,11 @@ class App extends React.Component {
       imagesCollect:""
     };
     this.userInput = this.userInput.bind(this);
+    this.renderImages = this.renderImages.bind(this);
    
   }
   componentDidMount() {
-    fetch("http://localhost:8000/countries/name/")
+    fetch("http://localhost:8000/countries/name/france")
       .then((response) => response.json())
       .then((result) => {
         
@@ -58,7 +59,7 @@ class App extends React.Component {
     fetch("http://localhost:8000/countries/name/" + this.state.name)
       .then((response) => response.json())
       .then((result) => {
-       
+      //  console.log("result", result);
         let data = result.resultCountries[0];
         this.setState({
           name: data.name,
@@ -102,9 +103,27 @@ class App extends React.Component {
       name: event.target.value,
     });
   }
+
+  renderImages(){
+    if (!this.state.imagesCollect){
+      return <p>Loading ...</p>
+    }else {
+     {this.state.imagesCollect.map((elem, index) => {
+        console.log("App test elem :", elem);
+        return <img className="bgImage py-1 border border-5" src={elem} alt="new" />
+        // return <Card key={index} {...elem} />;
+      })} 
+      //  <img className="bgImage py-1 border border-5" src={this.state.imagesCollect} alt="new" />
+     
+    }
+    
+    
+  }
+
   render() {
   //  console.log("App imagesCollect : " ,this.state.imagesCollect);
   
+    
    const {
     flag,
     name,
@@ -149,6 +168,8 @@ class App extends React.Component {
           <p className="col-2 mt-2">Currencies</p>
         </div>
 
+
+        
         <Card
           flagImg={flag}
           country={name}
@@ -159,8 +180,9 @@ class App extends React.Component {
           countryCurren={currencies}
           countryLang={languages}
           cntImages={imageCnt}
-          imagecoll={imagesCollect}
-        ></Card>
+          imagecoll={this.renderImages()}
+          ></Card>
+          {/* {this.renderImages()} */}
       </div>
     );
   }

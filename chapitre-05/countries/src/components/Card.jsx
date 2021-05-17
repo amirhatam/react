@@ -2,20 +2,28 @@ import React from "react";
 import Fade from "react-reveal/Fade";
 
 class Card extends React.Component {
+
+
+
+  // componentDidMount(){
+
+  //   const picsArray = this.props.imagecoll;
+  
+  //   const imageFound = picsArray.map((e) => e)
+  
+  //  console.log("imageFound", imageFound);
+  // }
+
   render() {
 
-    const picsArray = this.props.imagecoll;
-
-    // const imageFound = pics.map((e) => e.urls.regular)
-
-   
 
     // var adults = picsArray.filter(function(e) {
     //   return (e.results) 
     // });
 
   
-// console.log(" this.props.imagecoll :" , this.props.imagecoll[0]);
+console.log("Card this.props.imagecoll :" , this.props.imagecoll);
+console.log("Card this.props.imagesCollect :" , this.props.imagesCollect);
 
     return (
       <div
@@ -43,11 +51,23 @@ class Card extends React.Component {
         </Fade>
         {/* <img className="bgImage py-1 border border-5" src={this.props.cntImages} alt="new" /> */}
 
-        {/* {picsArray.map((e) => (
-          <img key="{pic}"  src={e.urls.regular}>{"pic"}</img>
+        {/* {this.props.imagecoll.map((e) => (
+          // console.log("Card e :", e)
+          return <img  src={e}/>
        ))} */}
+
+            {/* {this.props.imagecoll.map((elem, index) => {
+              console.log("Card test elem :", elem);
+              return <img key={index} {...elem} />;
+            })} */}
+
+
        <div>
-        <img className="bgImage py-1 border border-5" src={this.props.imagecoll[0]} alt="new" />
+ 
+          {this.props.imagecoll}
+       {/* <img className="bgImage py-1 border border-5" src={this.props.imagecoll} alt="new" /> */}
+       
+       {/* <img className="bgImage py-1 border border-5" src={this.props.imagecoll[0]} alt="new" />
         <img className="bgImage py-1 border border-5" src={this.props.imagecoll[1]} alt="new" />
         <img className="bgImage py-1 border border-5" src={this.props.imagecoll[2]} alt="new" />
         <img className="bgImage py-1 border border-5" src={this.props.imagecoll[3]} alt="new" />
@@ -57,7 +77,7 @@ class Card extends React.Component {
         <img className="bgImage py-1 border border-5" src={this.props.imagecoll[7]} alt="new" />
         <img className="bgImage py-1 border border-5" src={this.props.imagecoll[8]} alt="new" />
         <img className="bgImage py-1 border border-5" src={this.props.imagecoll[9]} alt="new" />
-        <img className="bgImage py-1 border border-5" src={this.props.imagecoll[10]} alt="new" />
+        <img className="bgImage py-1 border border-5" src={this.props.imagecoll[10]} alt="new" /> */}
          
        </div>
      
