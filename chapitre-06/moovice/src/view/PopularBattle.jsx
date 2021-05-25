@@ -1,32 +1,36 @@
 import React, { Component } from "react";
 
 import Card from "../components/Card";
+// import Favorites from "./Favorites";
 
 class PopularBattle extends Component {
   state = {
     movies: [],
     indexFirstMovieOfCurrentBattle: 0,
+
   };
 
   componentDidMount() {
     const url =
-      "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=e441f8a3a151d588a4932d2c5d310769";
+      "http://localhost:8000/movies/populair";
+      // "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=e441f8a3a151d588a4932d2c5d310769";
 
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
         this.setState({
-          movies: data.results,
+          movies: data.dataMoviesPopulair.results,
+          // movies: data.results,
         });
       });
   }
 
   updateIndexMovieBattle = (movieId) => {
-    console.log("updateIndexMovieBattle", typeof movieId);
+    console.log("updateIndexMovieBattle", movieId);
 
     const idsFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-    console.log("idsFavorites", idsFavorites);
+    // console.log("idsFavorites", idsFavorites);
 
     // if (!idsFavorites.find(elem => elem === movieId)) {
     if (!idsFavorites.includes(movieId)) {
@@ -47,8 +51,7 @@ class PopularBattle extends Component {
     return (
       <>
         <div
-          className="col-6"
-          style={{ cursor: "pointer" }}
+          className="btn btn-outline-info offset-1 m-5 col-5"
           onClick={() =>
             this.updateIndexMovieBattle(
               this.state.movies[indexFirstMovieOfCurrentBattle].id
@@ -69,14 +72,14 @@ class PopularBattle extends Component {
           />
         </div>
         <div
-          className="col-6"
-          style={{ cursor: "pointer" }}
+          className="btn btn-outline-info m-5 col-5"
           onClick={() =>
             this.updateIndexMovieBattle(
               this.state.movies[indexFirstMovieOfCurrentBattle + 1].id
             )
           }
         >
+          {/* <Favorites id={this.state.id} /> */}
           <Card
             title={this.state.movies[indexFirstMovieOfCurrentBattle + 1].title}
             poster_path={
@@ -97,13 +100,12 @@ class PopularBattle extends Component {
   render() {
     return (
       <div className="container text-center">
-          <h1 className="text-center">Popular Battle</h1>
-        <div className="row">
-
+        <h1 className="text-center mt-4 font-weight-light">Popular Battle</h1>
+        <div className="row justify-content-center ">
           {this.state.indexFirstMovieOfCurrentBattle > 19 ? (
             "Vous avez parcouru tous les films "
           ) : (
-            <div className="row">
+            <div className="row ">
               {this.state.movies.length !== 0
                 ? this.renderTwoMovies()
                 : "Please wait until the movies are loaded"}
